@@ -1,15 +1,16 @@
 package searches;
 
+import graphParts.Vertex;
 import graphs.MyGraph;
 
-public class DepthFirstSearch<Vertex> extends Search<Vertex> {
-    public DepthFirstSearch(MyGraph<Vertex> graph, Vertex source) {
+public class DepthFirstSearch<V> extends Search<V> {
+    public DepthFirstSearch(MyGraph<V> graph, Vertex<V> source) {
         super(source);
 
         dfs(graph, source);
     }
 
-    private void dfs(MyGraph<Vertex> graph, Vertex current) {
+    private void dfs(MyGraph<V> graph, Vertex<V> current) {
         marked.add(current);
 
         for (Vertex v : graph.adjacencyList(current)) {

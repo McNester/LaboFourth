@@ -1,11 +1,13 @@
 package searches;
 
+import graphParts.Vertex;
+
 import java.util.*;
 
-public class Search<Vertex> {
-    protected Set<Vertex> marked;
-    protected Map<Vertex, Vertex> edgeTo;
-    protected final Vertex source;
+public class Search<V> {
+    protected Set<Vertex<V>> marked;
+    protected Map<Vertex<V>, Vertex<V>> edgeTo;
+    protected final Vertex<V> source;
 
     public Search(Vertex source) {
         this.source = source;
@@ -17,11 +19,12 @@ public class Search<Vertex> {
         return marked.contains(v);
     }
 
-    public Iterable<Vertex> pathTo(Vertex v) {
-        if (!hasPathTo(v)) return null;
+    public Iterable<Vertex> pathTo(String v) {
+        Vertex vert = new Vertex(v);
+        if (!hasPathTo(vert)) return null;
 
         LinkedList<Vertex> ls = new LinkedList<>();
-        for (Vertex i = v; i != source; i = edgeTo.get(i)) {
+        for (Vertex i = vert; i != source; i = edgeTo.get(i)) {
             ls.push(i); // inverted adding
         }
 

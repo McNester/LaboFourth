@@ -1,6 +1,7 @@
 package searches;
 
 import graphParts.Edge;
+import graphParts.Vertex;
 import graphs.WeightedGraph;
 
 import java.util.HashMap;
@@ -8,7 +9,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class DijkstraSearch<Vertex> extends Search<Vertex> {
+public class DijkstraSearch<V> extends Search<V> {
     private final Set<Vertex> unsettledNodes;
     private final Map<Vertex, Double> distances;
     private final WeightedGraph<Vertex> graph;
