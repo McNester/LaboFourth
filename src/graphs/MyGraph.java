@@ -33,7 +33,7 @@ public class MyGraph<Vertex> {
 
         if (hasEdge(source, dest)
                 || source.equals(dest))
-            return; // reject parallels & self-loops
+            return;
 
         map.get(source).add(dest);
 
